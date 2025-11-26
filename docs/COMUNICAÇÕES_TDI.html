@@ -118,18 +118,18 @@
     <header>
         <div class="container">
             <h1>Dashboard de Comunicação da Frota</h1>
-            <p class="subtitle">TDI - Gerado em 26/11/2025 às 10:23:27</p>
+            <p class="subtitle">TDI - Gerado em 26/11/2025 às 11:23:28</p>
         </div>
     </header>
 
     <div class="main-content container">
         <div class="kpi-container">
             <div class="kpi-card online">
-                <span class="value">0</span>
+                <span class="value">1</span>
                 <span class="label">Ativos</span>
             </div>
             <div class="kpi-card offline">
-                <span class="value">2</span>
+                <span class="value">1</span>
                 <span class="label">Inativos</span>
             </div>
             <div class="kpi-card total">
@@ -137,15 +137,15 @@
                 <span class="label">Total Frota</span>
             </div>
             <div class="kpi-card rate">
-                <span class="value">0.0%</span>
+                <span class="value">50.0%</span>
                 <span class="label">Taxa de Comunicação</span>
             </div>
         </div>
 
         <div class="controls">
             <div class="tab-nav">
-                <button onclick="showTab('inativos')" class="active">Inativos (2)</button>
-                <button onclick="showTab('ativos')">Ativos (0)</button>
+                <button onclick="showTab('inativos')" class="active">Inativos (1)</button>
+                <button onclick="showTab('ativos')">Ativos (1)</button>
             </div>
         
         </div>
@@ -163,17 +163,10 @@
                 <tbody id="inativos-body">
                     
                     <tr class="veiculo-item" data-veiculo-nome="100803">
-                        <td><span class="status status-offline">OFFLINE (1d 0h)</span></td>
+                        <td><span class="status status-offline">OFFLINE (1d 1h)</span></td>
                         <td><strong>100803</strong></td>
                         <td>☀️ 25/11/2025 09:35</td>
                         <td><a href="#" class="details-link" onclick="showVehicleDetails('100803')">Detalhes</a></td>
-                    </tr>
-                
-                    <tr class="veiculo-item" data-veiculo-nome="104001">
-                        <td><span class="status status-offline">OFFLINE (12h 1m)</span></td>
-                        <td><strong>104001</strong></td>
-                        <td>🌆 25/11/2025 22:22</td>
-                        <td><a href="#" class="details-link" onclick="showVehicleDetails('104001')">Detalhes</a></td>
                     </tr>
                 
                 </tbody>
@@ -184,6 +177,13 @@
         <div id="ativos" class="tab-content">
             <div class="grid-container" id="ativos-body">
                 
+                <div class="vehicle vehicle-online veiculo-item" data-veiculo-nome="104001" onclick="showVehicleDetails('104001')">
+                    <div class="vehicle-header">
+                        <span class="vehicle-prefix">104001</span>
+                        <span class="vehicle-status status-online">ONLINE</span>
+                    </div>
+                    <span class="timestamp">Última: ☀️ 26/11/2025 10:48</span>
+                </div>
             </div>
             <div class="no-results" id="no-results-ativos">Nenhum veículo ativo encontrado.</div>
         </div>
@@ -203,7 +203,7 @@
 
 <script>
     const veiculoData = {"100803": {"serie": "67678.0", "versao": "91.13", "eod": "212.0"}, "104001": {"serie": "67678.0", "versao": "91.13", "eod": "212.0"}};
-    const comunicacoesData = {"100803": [{"dataHora": "25/11/2025 09:35:48", "tempoSegundos": "52.0"}, {"dataHora": "25/11/2025 09:31:18", "tempoSegundos": "50.0"}, {"dataHora": "25/11/2025 09:26:48", "tempoSegundos": "50.0"}], "104001": [{"dataHora": "25/11/2025 22:22:08", "tempoSegundos": "12.0"}, {"dataHora": "25/11/2025 16:53:11", "tempoSegundos": "12.0"}, {"dataHora": "25/11/2025 10:53:36", "tempoSegundos": "11.0"}, {"dataHora": "25/11/2025 09:47:03", "tempoSegundos": "11.0"}, {"dataHora": "25/11/2025 09:37:40", "tempoSegundos": "11.0"}, {"dataHora": "25/11/2025 09:22:03", "tempoSegundos": "12.0"}, {"dataHora": "25/11/2025 05:29:56", "tempoSegundos": "10.0"}, {"dataHora": "25/11/2025 04:58:40", "tempoSegundos": "10.0"}, {"dataHora": "25/11/2025 04:28:13", "tempoSegundos": "10.0"}, {"dataHora": "25/11/2025 03:59:02", "tempoSegundos": "10.0"}, {"dataHora": "25/11/2025 03:27:45", "tempoSegundos": "10.0"}, {"dataHora": "25/11/2025 02:57:35", "tempoSegundos": "10.0"}, {"dataHora": "25/11/2025 02:27:47", "tempoSegundos": "10.0"}, {"dataHora": "25/11/2025 01:57:57", "tempoSegundos": "10.0"}, {"dataHora": "25/11/2025 01:26:31", "tempoSegundos": "11.0"}, {"dataHora": "25/11/2025 00:56:32", "tempoSegundos": "10.0"}, {"dataHora": "25/11/2025 00:26:40", "tempoSegundos": "10.0"}]};
+    const comunicacoesData = {"100803": [{"dataHora": "25/11/2025 09:35:48", "tempoSegundos": "52.0"}, {"dataHora": "25/11/2025 09:31:18", "tempoSegundos": "50.0"}, {"dataHora": "25/11/2025 09:26:48", "tempoSegundos": "50.0"}], "104001": [{"dataHora": "26/11/2025 10:48:56", "tempoSegundos": "11.0"}, {"dataHora": "25/11/2025 22:22:08", "tempoSegundos": "12.0"}, {"dataHora": "25/11/2025 16:53:11", "tempoSegundos": "12.0"}, {"dataHora": "25/11/2025 10:53:36", "tempoSegundos": "11.0"}, {"dataHora": "25/11/2025 09:47:03", "tempoSegundos": "11.0"}, {"dataHora": "25/11/2025 09:37:40", "tempoSegundos": "11.0"}, {"dataHora": "25/11/2025 09:22:03", "tempoSegundos": "12.0"}, {"dataHora": "25/11/2025 05:29:56", "tempoSegundos": "10.0"}, {"dataHora": "25/11/2025 04:58:40", "tempoSegundos": "10.0"}, {"dataHora": "25/11/2025 04:28:13", "tempoSegundos": "10.0"}, {"dataHora": "25/11/2025 03:59:02", "tempoSegundos": "10.0"}, {"dataHora": "25/11/2025 03:27:45", "tempoSegundos": "10.0"}, {"dataHora": "25/11/2025 02:57:35", "tempoSegundos": "10.0"}, {"dataHora": "25/11/2025 02:27:47", "tempoSegundos": "10.0"}, {"dataHora": "25/11/2025 01:57:57", "tempoSegundos": "10.0"}, {"dataHora": "25/11/2025 01:26:31", "tempoSegundos": "11.0"}, {"dataHora": "25/11/2025 00:56:32", "tempoSegundos": "10.0"}, {"dataHora": "25/11/2025 00:26:40", "tempoSegundos": "10.0"}]};
     let currentTab = 'inativos';
 
     function showTab(tabName) {
