@@ -50,7 +50,7 @@
     <div class="container header-content">
         <div>
             <h1 style="margin:0">📊 TDI</h1>
-            <small id="last-update">Atualizado: 23:05</small>
+            <small id="last-update">Atualizado: 00:04</small>
         </div>
         <div class="controls-area">
             <input type="text" id="globalSearch" class="search-box" placeholder="🔍 Buscar Veículo...">
@@ -59,7 +59,7 @@
                 <option value="old_eod">Versão EOD Desatualizada</option>
             </select>
             <button class="btn-toggle" onclick="toggleTheme()">🌓</button>
-            <input type="date" id="datePicker" value="2025-12-28" style="padding: 7px; border-radius: 5px;">
+            <input type="date" id="datePicker" value="2025-12-29" style="padding: 7px; border-radius: 5px;">
         </div>
     </div>
 </header>
@@ -105,7 +105,7 @@
 <script>
     const FROTA = ["104001"];
     const METADATA = {"104001": {"serie": "67678.0", "versao": "91.13", "eod": "212.0"}};
-    const HISTORY = {"104001": [{"d": "2025-12-28 22:57:07", "e": null}, {"d": "2025-12-28 22:26:03", "e": null}, {"d": "2025-12-28 11:27:41", "e": null}, {"d": "2025-12-28 11:23:40", "e": "(1022): Erro ao ler dados do socket."}, {"d": "2025-12-28 04:30:47", "e": null}, {"d": "2025-12-28 04:00:59", "e": null}, {"d": "2025-12-28 03:30:32", "e": null}, {"d": "2025-12-28 03:00:46", "e": null}, {"d": "2025-12-28 02:29:59", "e": null}, {"d": "2025-12-28 01:58:43", "e": null}, {"d": "2025-12-28 01:28:16", "e": null}, {"d": "2025-12-28 00:58:29", "e": null}, {"d": "2025-12-28 00:28:31", "e": null}, {"d": "2025-12-27 23:57:16", "e": null}, {"d": "2025-12-27 23:28:16", "e": null}, {"d": "2025-12-27 22:57:02", "e": null}, {"d": "2025-12-27 22:27:04", "e": null}, {"d": "2025-12-27 10:57:31", "e": null}, {"d": "2025-12-27 04:38:45", "e": null}, {"d": "2025-12-27 04:08:26", "e": null}, {"d": "2025-12-27 03:27:28", "e": null}, {"d": "2025-12-27 02:57:41", "e": null}, {"d": "2025-12-27 02:27:15", "e": null}, {"d": "2025-12-27 01:57:26", "e": null}, {"d": "2025-12-27 01:26:59", "e": null}, {"d": "2025-12-27 00:55:45", "e": null}, {"d": "2025-12-27 00:25:18", "e": null}]}; 
+    const HISTORY = {"104001": [{"d": "2025-12-28 23:57:32", "e": null}, {"d": "2025-12-28 23:27:43", "e": null}, {"d": "2025-12-28 22:57:07", "e": null}, {"d": "2025-12-28 22:26:03", "e": null}, {"d": "2025-12-28 11:27:41", "e": null}, {"d": "2025-12-28 11:23:40", "e": "(1022): Erro ao ler dados do socket."}, {"d": "2025-12-28 04:30:47", "e": null}, {"d": "2025-12-28 04:00:59", "e": null}, {"d": "2025-12-28 03:30:32", "e": null}, {"d": "2025-12-28 03:00:46", "e": null}, {"d": "2025-12-28 02:29:59", "e": null}, {"d": "2025-12-28 01:58:43", "e": null}, {"d": "2025-12-28 01:28:16", "e": null}, {"d": "2025-12-28 00:58:29", "e": null}, {"d": "2025-12-28 00:28:31", "e": null}]}; 
     const datePicker = document.getElementById('datePicker');
     const searchInput = document.getElementById('globalSearch');
     const metaFilter = document.getElementById('metaFilter');
