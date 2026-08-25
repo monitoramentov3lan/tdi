@@ -11,97 +11,79 @@
         --primary: #2563eb; --primary-dark: #1e40af; --secondary: #64748b;
         --success: #10b981; --warning: #f59e0b; --danger: #ef4444;
         --bg: #f3f4f6; --card-bg: #ffffff; --text: #1f2937; --text-light: #6b7280;
-        --border: #e5e7eb; --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --border: #e5e7eb; --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     }
     [data-theme="dark"] {
         --primary: #3b82f6; --primary-dark: #60a5fa; --secondary: #94a3b8;
         --bg: #0f172a; --card-bg: #1e293b; --text: #f3f4f6; --text-light: #9ca3af;
-        --border: #334155; --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        --border: #334155;
     }
-    
-    body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); margin: 0; padding-bottom: 40px; transition: background-color 0.3s, color 0.3s; }
-    
-    /* Layout & Grid */
+    body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); margin: 0; padding-bottom: 40px; transition: 0.3s; }
     .container { max-width: 1440px; margin: 0 auto; padding: 0 20px; }
     .header-wrapper { background-color: var(--card-bg); border-bottom: 1px solid var(--border); padding: 1rem 0; position: sticky; top: 0; z-index: 50; box-shadow: var(--shadow); }
     .header-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
     
-    /* KPI Section */
-    .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 25px; margin-bottom: 25px; }
+    .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 25px 0; }
     .kpi-card { background: var(--card-bg); padding: 20px; border-radius: 12px; box-shadow: var(--shadow); border: 1px solid var(--border); display: flex; flex-direction: column; }
-    .kpi-title { font-size: 0.875rem; color: var(--text-light); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+    .kpi-title { font-size: 0.875rem; color: var(--text-light); font-weight: 600; text-transform: uppercase; }
     .kpi-value { font-size: 2rem; font-weight: 700; margin-top: 5px; color: var(--text); }
     .kpi-sub { font-size: 0.85rem; margin-top: auto; padding-top: 10px; }
     
-    /* Controls */
     .controls-bar { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; background: var(--card-bg); padding: 15px; border-radius: 12px; margin-bottom: 20px; border: 1px solid var(--border); box-shadow: var(--shadow); }
-    .search-input { flex: 1; min-width: 200px; padding: 10px 15px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text); outline: none; transition: 0.2s; }
-    .search-input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); }
-    .btn { padding: 10px 20px; border-radius: 8px; border: none; font-weight: 600; cursor: pointer; transition: 0.2s; display: inline-flex; align-items: center; gap: 8px; font-size: 0.9rem; }
+    .search-input { flex: 1; min-width: 200px; padding: 10px 15px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text); outline: none; }
+    .btn { padding: 10px 20px; border-radius: 8px; border: none; font-weight: 600; cursor: pointer; transition: 0.2s; display: inline-flex; align-items: center; gap: 8px; }
     .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text); }
-    .btn-outline:hover { background: var(--border); }
     .btn-export { background: var(--success); color: white; }
-    .btn-export:hover { filter: brightness(1.1); }
 
-    /* Charts */
     .charts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px; margin-bottom: 25px; }
-    .chart-box { background: var(--card-bg); padding: 20px; border-radius: 12px; box-shadow: var(--shadow); border: 1px solid var(--border); height: 320px; position: relative; }
+    .chart-box { background: var(--card-bg); padding: 20px; border-radius: 12px; box-shadow: var(--shadow); border: 1px solid var(--border); height: 320px; }
 
-    /* Tabs */
     .tabs-nav { display: flex; gap: 5px; margin-bottom: 20px; background: var(--card-bg); padding: 5px; border-radius: 10px; border: 1px solid var(--border); width: fit-content; }
     .tab-item { padding: 10px 25px; border-radius: 8px; cursor: pointer; font-weight: 600; color: var(--text-light); transition: 0.2s; user-select: none; }
     .tab-item.active { background: var(--primary); color: white; }
     .tab-item.active.tab-crit { background: var(--danger); }
     
-    /* Views */
     .view-section { display: none; animation: fadeIn 0.4s ease; }
     .view-section.active { display: block; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* Vehicle Cards */
     .vehicle-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px; }
-    .v-card { background: var(--card-bg); border-radius: 10px; padding: 15px; border: 1px solid var(--border); cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; position: relative; overflow: hidden; }
+    .v-card { background: var(--card-bg); border-radius: 10px; padding: 15px; border: 1px solid var(--border); cursor: pointer; transition: 0.2s; position: relative; overflow: hidden; }
     .v-card:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); border-color: var(--primary); }
     .v-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 4px; background: var(--success); }
     .v-card.outdated::after { background: var(--warning); }
     .v-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 10px; }
     .v-id { font-size: 1.5rem; font-weight: 700; color: var(--text); line-height: 1; }
-    .v-time { font-size: 0.8rem; color: var(--text-light); display: flex; align-items: center; gap: 4px; }
     .v-meta { font-size: 0.75rem; color: var(--text-light); background: var(--bg); padding: 4px 8px; border-radius: 4px; margin-top: 8px; display: inline-block; }
+    .v-ip { font-size: 0.75rem; font-weight: bold; color: var(--primary); background: rgba(37,99,235,0.1); padding: 4px 8px; border-radius: 4px; margin-top: 8px; display: inline-block; }
     
-    /* Tables */
-    .table-container { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border); background: var(--card-bg); box-shadow: var(--shadow); }
-    table { width: 100%; border-collapse: collapse; min-width: 600px; }
-    th, td { padding: 15px 20px; text-align: left; border-bottom: 1px solid var(--border); }
-    th { background: var(--bg); font-weight: 600; color: var(--text-light); font-size: 0.85rem; text-transform: uppercase; cursor: pointer; }
-    th:hover { color: var(--primary); }
-    tr:last-child td { border-bottom: none; }
-    tr:hover td { background-color: rgba(0,0,0,0.02); }
+    .table-container { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border); background: var(--card-bg); }
+    table { width: 100%; border-collapse: collapse; min-width: 600px; text-align: left; }
+    th, td { padding: 12px 15px; border-bottom: 1px solid var(--border); font-size: 0.85rem; }
+    th { background: var(--bg); font-weight: 600; color: var(--text-light); text-transform: uppercase; cursor: pointer; }
     
-    /* Badges */
-    .badge { padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; display: inline-flex; align-items: center; gap: 5px; }
+    .badge { padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; }
     .badge-offline { background: rgba(245, 158, 11, 0.1); color: var(--warning); border: 1px solid rgba(245, 158, 11, 0.2); }
     .badge-error { background: rgba(239, 68, 68, 0.1); color: var(--danger); border: 1px solid rgba(239, 68, 68, 0.2); }
     
-    /* Modal */
+    /* Modal Styles */
     .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); backdrop-filter: blur(4px); }
-    .modal-content { background-color: var(--card-bg); margin: 5vh auto; padding: 0; border-radius: 16px; width: 90%; max-width: 600px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); animation: slideIn 0.3s; }
+    .modal-content { background-color: var(--card-bg); margin: 5vh auto; padding: 0; border-radius: 16px; width: 90%; max-width: 700px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); animation: slideIn 0.3s; display: flex; flex-direction: column; max-height: 90vh; }
     @keyframes slideIn { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
     .modal-header { padding: 20px 25px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-    .modal-body { padding: 25px; }
-    .close-modal { font-size: 1.5rem; cursor: pointer; color: var(--text-light); transition: 0.2s; }
-    .close-modal:hover { color: var(--danger); }
+    .modal-body { padding: 20px 25px; overflow-y: auto; flex: 1; }
+    .close-modal { font-size: 1.5rem; cursor: pointer; color: var(--text-light); }
     
-    /* Utility */
+    /* Modal Sub-tabs */
+    .m-tabs { display: flex; gap: 10px; margin-bottom: 15px; border-bottom: 2px solid var(--bg); }
+    .m-tab { background: none; border: none; padding: 10px 15px; font-weight: 600; color: var(--text-light); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: 0.2s; }
+    .m-tab.active { color: var(--primary); border-bottom-color: var(--primary); }
+    .m-content { display: none; }
+    .m-content.active { display: block; animation: fadeIn 0.3s ease; }
+    
     #refresh-bar { height: 3px; background: var(--primary); width: 100%; position: absolute; bottom: 0; left: 0; transition: width 1s linear; }
     .hidden { display: none !important; }
     .text-danger { color: var(--danger); }
-    
-    @media (max-width: 768px) {
-        .header-content { flex-direction: column; align-items: flex-start; }
-        .controls-area { width: 100%; }
-        .search-box { width: 100%; }
-    }
 </style>
 </head>
 <body>
@@ -109,42 +91,34 @@
 <header class="header-wrapper">
     <div class="container header-content">
         <div>
-            <h1 style="margin:0; font-size: 1.5rem; display: flex; align-items: center; gap: 10px;">
-                📊 TDI 
-                <span style="font-size: 0.8rem; font-weight: 400; padding: 4px 10px; background: var(--bg); border-radius: 20px; border: 1px solid var(--border);">v2.0</span>
-            </h1>
-            <small style="color: var(--text-light); display: block; margin-top: 5px;">Última atualização: 16:53</small>
+            <h1 style="margin:0; font-size: 1.5rem;">📊 TDI</h1>
+            <small style="color: var(--text-light); display: block; margin-top: 5px;">Última atualização: 17:21</small>
         </div>
-        <div style="display: flex; gap: 10px; align-items: center;">
-            <button class="btn btn-outline" onclick="toggleTheme()" title="Mudar Tema">🌓 Tema</button>
-            <button class="btn btn-export" onclick="exportData()" title="Baixar CSV">📥 Exportar</button>
+        <div style="display: flex; gap: 10px;">
+            <button class="btn btn-outline" onclick="toggleTheme()">🌓 Tema</button>
+            <button class="btn btn-export" onclick="exportData()">📥 Exportar</button>
         </div>
         <div id="refresh-bar"></div>
     </div>
 </header>
 
 <div class="container">
-    
     <div class="kpi-grid">
         <div class="kpi-card" style="border-left: 5px solid var(--success);">
             <span class="kpi-title">Veículos Online</span>
             <div class="kpi-value" id="kpi-online">0</div>
-            <div class="kpi-sub" style="color: var(--success);">Funcionando corretamente</div>
         </div>
         <div class="kpi-card" style="border-left: 5px solid var(--danger);">
             <span class="kpi-title">Críticos / Erros</span>
             <div class="kpi-value" id="kpi-critical">0</div>
-            <div class="kpi-sub" style="color: var(--danger);">Requer atenção imediata</div>
         </div>
         <div class="kpi-card" style="border-left: 5px solid var(--warning);">
             <span class="kpi-title">Offline</span>
             <div class="kpi-value" id="kpi-offline">0</div>
-            <div class="kpi-sub" style="color: var(--warning);">Sem comunicação hoje</div>
         </div>
         <div class="kpi-card" style="border-left: 5px solid var(--primary);">
             <span class="kpi-title">Taxa de Sucesso</span>
             <div class="kpi-value" id="kpi-rate">0%</div>
-            <div class="kpi-sub" style="color: var(--primary);">Eficiência da frota</div>
         </div>
     </div>
 
@@ -177,28 +151,16 @@
 
     <div id="tab-online" class="view-section active">
         <div class="vehicle-grid" id="list-online"></div>
-        <div id="empty-online" class="hidden" style="text-align:center; padding:50px; color:var(--text-light)">
-            <h3>Nenhum veículo online encontrado.</h3>
-        </div>
     </div>
 
     <div id="tab-critical" class="view-section">
         <div class="table-container">
             <table>
                 <thead>
-                    <tr>
-                        <th onclick="sortTable(0, 'list-critical')">Prefixo</th>
-                        <th>Status</th>
-                        <th>Erro Reportado</th>
-                        <th>Hora</th>
-                        <th>Versão</th>
-                    </tr>
+                    <tr><th onclick="sortTable(0, 'list-critical')">Prefixo</th><th>IP</th><th>Status</th><th>Erro Reportado</th><th>Hora</th><th>Versão</th></tr>
                 </thead>
                 <tbody id="list-critical"></tbody>
             </table>
-        </div>
-        <div id="empty-critical" class="hidden" style="text-align:center; padding:50px; color:var(--text-light)">
-            <h3>Nenhum erro reportado hoje! 👏</h3>
         </div>
     </div>
 
@@ -206,52 +168,57 @@
         <div class="table-container">
             <table>
                 <thead>
-                    <tr>
-                        <th onclick="sortTable(0, 'list-offline')">Prefixo</th>
-                        <th>Status</th>
-                        <th>Última Comunicação</th>
-                        <th>Tempo Inativo</th>
-                    </tr>
+                    <tr><th onclick="sortTable(0, 'list-offline')">Prefixo</th><th>IP</th><th>Status</th><th>Última Comunicação</th><th>Tempo Inativo</th></tr>
                 </thead>
                 <tbody id="list-offline"></tbody>
             </table>
-        </div>
-        <div id="empty-offline" class="hidden" style="text-align:center; padding:50px; color:var(--text-light)">
-            <h3>Toda a frota comunicou hoje!</h3>
         </div>
     </div>
 
 </div>
 
+<!-- MODAL COM ABAS DE DETALHES -->
 <div id="modalInfo" class="modal">
     <div class="modal-content">
         <div class="modal-header">
             <h2 id="m-title" style="margin:0">Detalhes</h2>
             <span class="close-modal" onclick="closeModal()">&times;</span>
         </div>
-        <div class="modal-body" id="m-body"></div>
+        <div class="modal-body">
+            <div id="m-body-header"></div>
+            
+            <div class="m-tabs">
+                <button class="m-tab active" onclick="switchModalTab('m-comms', this)">Últimas 50 Comunicações</button>
+                <button class="m-tab" onclick="switchModalTab('m-tgs', this)">Últimos 30 TGs (Seq)</button>
+            </div>
+            
+            <div id="m-comms" class="m-content active"></div>
+            <div id="m-tgs" class="m-content"></div>
+        </div>
     </div>
 </div>
 
 <script>
-    // Dados injetados pelo Python (Base64)
+    // Dados injetados pelo Python
     const FROTA = JSON.parse(atob("WyIxMDQwMDEiXQ=="));
     const METADATA = JSON.parse(atob("eyIxMDQwMDEiOiB7InNlcmllIjogIjY3Njc4IiwgInZlcnNhbyI6ICI5MS4xMyIsICJlb2QiOiAiMjM5IiwgImRpYXNfc2VtX2NvbXVuaWNhciI6IDB9fQ=="));
     const HISTORY = JSON.parse(atob("eyIxMDQwMDEiOiBbeyJkIjogIjIwMjYtMDgtMjUgMTY6NTE6MzUiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0yNSAxMDo0NzowNiIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTI1IDA0OjU1OjE2IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMjUgMDM6NTU6NDYiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0yNSAwMjo1NDo1MiIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTI1IDAxOjUzOjU0IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMjUgMDA6NTM6MzciLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0yNCAyMzo1MzoxOSIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTI0IDIyOjUyOjQ0IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMjQgMTY6NDk6MzAiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0yNCAxMDo0OTo1OSIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTI0IDA0OjMwOjA5IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMjQgMDM6MzA6NDIiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0yNCAwMjoyNTozOCIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTI0IDAxOjI0OjQ3IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMjQgMDA6MjQ6MzIiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0yMyAyMzoyNDoxNiIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTIzIDIyOjIzOjIyIiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMjMgMTY6NDk6NTgiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0yMyAxMDo1MTo1MiIsICJlIjogIjEwMjIifSwgeyJkIjogIjIwMjYtMDgtMjMgMDQ6Mzg6MjIiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0yMyAwMzo1Njo0MSIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTIzIDAxOjU0OjMyIiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMjMgMDA6NTQ6MDciLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0yMiAyMzo1Mzo1MiIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTIyIDIyOjUzOjM3IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMjIgMTE6MDk6MzgiLCAiZSI6ICIxMDIyIn0sIHsiZCI6ICIyMDI2LTA4LTIyIDA0OjU5OjIwIiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMjIgMDM6NTc6MzgiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0yMiAwMjoyNjo0NCIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTIyIDAxOjI3OjE4IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMjIgMDA6MjY6MTMiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0yMSAyMzoyNjowOSIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTIxIDIyOjI1OjE2IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMjEgMTY6NTI6MTMiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0yMSAwNDozMjo0NSIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTIxIDAzOjMxOjUzIiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMjEgMDE6NTg6NTgiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0yMSAwMDo1ODoxNSIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTIwIDIzOjU4OjU0IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMjAgMjI6NTg6MDIiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0yMCAxNjo1NDo0OSIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTIwIDEwOjUyOjI1IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMjAgMDQ6Mjk6MDciLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0yMCAwMzo1ODozOSIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTIwIDAxOjU2OjM4IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMjAgMDA6NTU6NDciLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0xOSAyMzo1NjoxOCIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTE5IDIyOjU0OjM3IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMTkgMTY6NDk6NTYiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0xOSAxMDo0OToyNyIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTE5IDA0OjMxOjAzIiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMTkgMDM6MzA6MDkiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0xOSAwMjoyODoxNCIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTE5IDAxOjI4OjM1IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMTkgMDA6Mjc6MzQiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0xOCAyMzoyNjowNiIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTE4IDIyOjI2OjM4IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMTggMTY6NDk6MjkiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0xOCAxMDo1NToyOSIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTE4IDA0OjI3OjU0IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMTggMDM6NTc6MzAiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0xOCAwMjoyNzo0MCIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTE4IDAxOjI2OjQ4IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMTggMDA6MjY6MjUiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0xNyAyMzoyNTozNSIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTE3IDIyOjI2OjA5IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMTcgMTA6NDg6NTUiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0xNyAwNTowMTowNiIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTE2IDE2OjUxOjMzIiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMTYgMTA6NDU6MTEiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0xNiAwNTowNjowMyIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTE2IDA0OjU5OjEyIiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMTYgMDM6Mjk6MjEiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0xNiAwMTo1ODoyOSIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTE2IDAwOjU2OjQ3IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMTUgMjM6NTc6MjIiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0xNSAyMjo1NjoyOSIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTE1IDE2OjUzOjUxIiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMTUgMTA6NTY6MjgiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0xNSAwNDo0MTo1OSIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTE1IDAzOjQxOjU1IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMTUgMDE6NDA6MzQiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0xNSAwMDozOToyNyIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTE0IDIzOjQwOjAxIiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMTQgMjI6Mzk6MDIiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0xNCAxMDo0OToxNyIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTE0IDA0OjUyOjA5IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMTQgMDM6NTE6NDQiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0xNCAwMTo0MDo1MyIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTE0IDAxOjAxOjUwIiwgImUiOiAiMTAyMiJ9LCB7ImQiOiAiMjAyNi0wOC0xMyAyMzo1NzowNiIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTEzIDIyOjU2OjE1IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMTMgMDQ6MzE6MDIiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0xMyAwMzozMDoyOSIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTEzIDAyOjAwOjA0IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMTMgMDA6NTc6NDMiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0xMiAyMzo1ODoxOCIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTEyIDIyOjU4OjAxIiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMTIgMDQ6NDU6MTMiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0xMiAwMzo0NDoxOSIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTEyIDAyOjE0OjE5IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMTIgMDE6MDg6NTIiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0xMiAwMDoyODozOSIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTExIDIzOjI4OjI0IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMTEgMjI6MjY6NDYiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0xMSAxNjo1MTo1NSIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTExIDA0OjU5OjIxIiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMTEgMDQ6Mjg6NDgiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0xMSAwMzo1ODoxMyIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTExIDAyOjU3OjU5IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMTEgMDE6NTc6MDYiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0xMSAwMDo1Njo1MyIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTEwIDIzOjU1OjU5IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMTAgMjI6NTU6NDYiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0xMCAxNjo1Mjo0MSIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTEwIDEwOjU0OjAwIiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMTAgMDQ6Mzk6MjYiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0xMCAwMzozOToxMiIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTEwIDAyOjAwOjE3IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMTAgMDA6NTk6MjIiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0wOSAyMzo1ODowMiIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTA5IDIyOjU4OjM0IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMDkgMTY6NTA6MDIiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0wOSAxMDo0NzoxMiIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTA5IDA0OjQxOjA4IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMDkgMDM6NDA6NTQiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0wOSAwMjoyOToyMCIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTA5IDAxOjI4OjI3IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMDkgMDA6Mjc6MzYiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0wOCAyMzoyNzoyNCIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTA4IDIyOjI2OjMyIiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMDggMTY6NTI6MzgiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0wOCAxMDo0ODoxNyIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTA4IDA1OjAyOjQzIiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMDggMDQ6MzI6MTYiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0wOCAwMzozMToyMyIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTA4IDAxOjU5OjM1IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMDggMDA6NTg6NDMiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0wNyAyMzo1Nzo1MSIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTA3IDIyOjU3OjM2IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMDcgMTY6NTg6MjgiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0wNyAxMDo1Mjo1NyIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTA3IDA0OjU4OjUwIiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMDcgMDM6NTc6NTgiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0wNyAwMjoyNzoxMyIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTA3IDAxOjI3OjAwIiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMDcgMDA6MjY6MDkiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0wNiAyMzoyNTo1OCIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTA2IDIyOjI1OjQ4IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMDYgMTY6NDk6MTMiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0wNiAxMDo1MDoyNCIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTA2IDA0OjU3OjQwIiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMDYgMDM6NTc6MjYiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0wNiAwMjoyNjoxMCIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTA2IDAxOjI1OjE3IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMDYgMDA6MjU6MDQiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0wNSAyMzoyNDowMSIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTA1IDIyOjI0OjM2IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMDUgMTY6NTI6MDQiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0wNSAxMDo0NzowMyIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTA1IDA0OjMzOjAwIiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMDUgMDM6MzE6MzAiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0wNSAwMjowMDo1MSIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTA1IDAxOjAwOjI1IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMDQgMjM6NTk6MjMiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0wNCAyMjo1OToxMCIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTA0IDE2OjQ5OjQzIiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMDQgMTA6NDc6NDUiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0wNCAwNDozMTowNiIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTA0IDAzOjMwOjQ5IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMDQgMDI6MDA6MzUiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0wNCAwMTowMDoxMSIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTAzIDIzOjU4OjE5IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMDMgMjI6NTc6NTMiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0wMyAxNjo1NTo1MSIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTAzIDExOjA3OjU5IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMDMgMDQ6NTY6NDgiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0wMyAwMzo1NTo0MyIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTAzIDAxOjU0OjM0IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMDMgMDA6NTQ6MDEiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0wMiAyMzo1Mzo0NSIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTAyIDIyOjUyOjUxIiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMDIgMTY6NTg6MDQiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0wMiAxMDo1NToxOCIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTAyIDA0OjU4OjU0IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMDIgMDM6NTc6MTUiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0wMiAwMTo1NDo1NyIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTAyIDAwOjU1OjI4IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMDEgMjM6NTQ6MzgiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0wMSAyMjo1NDowOSIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTAxIDE2OjUwOjM1IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMDEgMTA6NTc6MzUiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0wMSAwNDoyNjoxNiIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTAxIDAzOjU1OjQ5IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDgtMDEgMDI6MjQ6NDYiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wOC0wMSAwMToyNTowOSIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA4LTAxIDAwOjIzOjE1IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDctMzEgMjM6MjI6MjkiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wNy0zMSAyMjoyMjozMyIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA3LTMxIDE2OjQ5OjU3IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDctMzEgMTA6NTg6MjMiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wNy0zMSAwNDozMzoyOCIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA3LTMxIDAzOjMxOjQ1IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDctMzEgMDI6MDE6MzgiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wNy0zMSAwMTowMDozNiIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA3LTMwIDIzOjU5OjI5IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDctMzAgMjI6NTk6NTciLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wNy0zMCAxNjo0ODo0OCIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA3LTMwIDEwOjU0OjUyIiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDctMzAgMDQ6MzM6NTciLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wNy0zMCAwMzozMzo0NSIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA3LTMwIDAyOjAzOjQxIiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDctMzAgMDE6MDM6MTQiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wNy0zMCAwMDowMjoyMiIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA3LTI5IDIzOjAxOjI5IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDctMjkgMTY6NDk6NDkiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wNy0yOSAxMTowMTowOCIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA3LTI5IDA0OjMzOjI3IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDctMjkgMDM6MzI6MjUiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wNy0yOSAwMjowMTo0MyIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA3LTI5IDAxOjAyOjU1IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDctMjkgMDA6MDE6MTciLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wNy0yOCAyMzowMTowNSIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA3LTI4IDE2OjUzOjQ5IiwgImUiOiAiMTAyMiJ9LCB7ImQiOiAiMjAyNi0wNy0yOCAxMTowMjozNiIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA3LTI4IDA0OjMxOjQ2IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDctMjggMDM6MzA6NTQiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wNy0yOCAwMjoyOTowMiIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA3LTI4IDAxOjI4OjE2IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDctMjggMDA6Mjc6MjQiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wNy0yNyAyMzoyNjozMiIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA3LTI3IDIyOjI2OjUwIiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDctMjcgMTY6NTA6NDUiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wNy0yNyAxMDo1OTo0OSIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA3LTI3IDA0OjM0OjE1IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDctMjcgMDQ6MDQ6MDciLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wNy0yNyAwMzozNDoyMCIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA3LTI3IDAzOjAzOjU0IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDctMjcgMDI6MzI6NDAiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wNy0yNyAwMjowMjo1NCIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA3LTI3IDAxOjMyOjI3IiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDctMjcgMDE6MDI6MzgiLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wNy0yNyAwMDozMjoxMSIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA3LTI3IDAwOjAyOjEzIiwgImUiOiBudWxsfSwgeyJkIjogIjIwMjYtMDctMjYgMjM6MzE6NDciLCAiZSI6IG51bGx9LCB7ImQiOiAiMjAyNi0wNy0yNiAyMzowMToyMCIsICJlIjogbnVsbH0sIHsiZCI6ICIyMDI2LTA3LTI2IDIyOjMwOjU1IiwgImUiOiBudWxsfV19"));
     
+    // Novos Dados Injetados Enriquecidos
+    const IPS = JSON.parse(atob("eyIxMDAwMDIiOiAiMTcyLjU0LjEwNC4yIiwgIjEwMDgwMyI6ICIxNzIuNTQuMTAyLjE3MCIsICIxMDQwMDEiOiAiMTcyLjU0LjEwNC4xIiwgIjMwNDAwMSI6ICIxNzIuNTQuMTA0LjEiLCAiOTkwMDAwIjogIjE3Mi41NC45OS4xIn0="));
+    const COMMS_50 = JSON.parse(atob("eyIxMDQwMDEiOiBbeyJkYXRhIjogIjI1LzA4LzIwMjYgMTY6NTE6MzUiLCAiYXBsIjogIjkxLjEzIiwgImVvZCI6ICIyMzkiLCAiZXJybyI6IG51bGx9LCB7ImRhdGEiOiAiMjUvMDgvMjAyNiAxMDo0NzowNiIsICJhcGwiOiAiOTEuMTMiLCAiZW9kIjogIjIzOSIsICJlcnJvIjogbnVsbH0sIHsiZGF0YSI6ICIyNS8wOC8yMDI2IDA0OjU1OjE2IiwgImFwbCI6ICI5MS4xMyIsICJlb2QiOiAiMjM5IiwgImVycm8iOiBudWxsfSwgeyJkYXRhIjogIjI1LzA4LzIwMjYgMDQ6MjQ6NDciLCAiYXBsIjogIjkxLjEzIiwgImVvZCI6ICIyMzkiLCAiZXJybyI6IG51bGx9LCB7ImRhdGEiOiAiMjUvMDgvMjAyNiAwMzo1NTo0NiIsICJhcGwiOiAiOTEuMTMiLCAiZW9kIjogIjIzOSIsICJlcnJvIjogbnVsbH0sIHsiZGF0YSI6ICIyNS8wOC8yMDI2IDAzOjI1OjE5IiwgImFwbCI6ICI5MS4xMyIsICJlb2QiOiAiMjM5IiwgImVycm8iOiBudWxsfSwgeyJkYXRhIjogIjI1LzA4LzIwMjYgMDI6NTQ6NTIiLCAiYXBsIjogIjkxLjEzIiwgImVvZCI6ICIyMzkiLCAiZXJybyI6IG51bGx9LCB7ImRhdGEiOiAiMjUvMDgvMjAyNiAwMjoyNDoyMyIsICJhcGwiOiAiOTEuMTMiLCAiZW9kIjogIjIzOSIsICJlcnJvIjogbnVsbH0sIHsiZGF0YSI6ICIyNS8wOC8yMDI2IDAxOjUzOjU0IiwgImFwbCI6ICI5MS4xMyIsICJlb2QiOiAiMjM5IiwgImVycm8iOiBudWxsfSwgeyJkYXRhIjogIjI1LzA4LzIwMjYgMDE6MjQ6MDQiLCAiYXBsIjogIjkxLjEzIiwgImVvZCI6ICIyMzkiLCAiZXJybyI6IG51bGx9LCB7ImRhdGEiOiAiMjUvMDgvMjAyNiAwMDo1MzozNyIsICJhcGwiOiAiOTEuMTMiLCAiZW9kIjogIjIzOSIsICJlcnJvIjogbnVsbH0sIHsiZGF0YSI6ICIyNS8wOC8yMDI2IDAwOjIzOjA4IiwgImFwbCI6ICI5MS4xMyIsICJlb2QiOiAiMjM5IiwgImVycm8iOiBudWxsfSwgeyJkYXRhIjogIjI0LzA4LzIwMjYgMjM6NTM6MTkiLCAiYXBsIjogIjkxLjEzIiwgImVvZCI6ICIyMzkiLCAiZXJybyI6IG51bGx9LCB7ImRhdGEiOiAiMjQvMDgvMjAyNiAyMzoyMjo1MSIsICJhcGwiOiAiOTEuMTMiLCAiZW9kIjogIjIzOSIsICJlcnJvIjogbnVsbH0sIHsiZGF0YSI6ICIyNC8wOC8yMDI2IDIyOjUyOjQ0IiwgImFwbCI6ICI5MS4xMyIsICJlb2QiOiAiMjM5IiwgImVycm8iOiBudWxsfSwgeyJkYXRhIjogIjI0LzA4LzIwMjYgMjI6MjI6MjciLCAiYXBsIjogIjkxLjEzIiwgImVvZCI6ICIyMzkiLCAiZXJybyI6IG51bGx9LCB7ImRhdGEiOiAiMjQvMDgvMjAyNiAxNjo0OTozMCIsICJhcGwiOiAiOTEuMTMiLCAiZW9kIjogIjIzOSIsICJlcnJvIjogbnVsbH0sIHsiZGF0YSI6ICIyNC8wOC8yMDI2IDEwOjQ5OjU5IiwgImFwbCI6ICI5MS4xMyIsICJlb2QiOiAiMjM5IiwgImVycm8iOiBudWxsfSwgeyJkYXRhIjogIjI0LzA4LzIwMjYgMDQ6MzA6MDkiLCAiYXBsIjogIjkxLjEzIiwgImVvZCI6ICIyMzkiLCAiZXJybyI6IG51bGx9LCB7ImRhdGEiOiAiMjQvMDgvMjAyNiAwNDowMTowOCIsICJhcGwiOiAiOTEuMTMiLCAiZW9kIjogIjIzOSIsICJlcnJvIjogbnVsbH0sIHsiZGF0YSI6ICIyNC8wOC8yMDI2IDAzOjMwOjQyIiwgImFwbCI6ICI5MS4xMyIsICJlb2QiOiAiMjM5IiwgImVycm8iOiBudWxsfSwgeyJkYXRhIjogIjI0LzA4LzIwMjYgMDM6MDA6MTUiLCAiYXBsIjogIjkxLjEzIiwgImVvZCI6ICIyMzkiLCAiZXJybyI6IG51bGx9LCB7ImRhdGEiOiAiMjQvMDgvMjAyNiAwMjo1ODo0MyIsICJhcGwiOiAiOTEuMTMiLCAiZW9kIjogIjIzOSIsICJlcnJvIjogIjEwMjIifSwgeyJkYXRhIjogIjI0LzA4LzIwMjYgMDI6MjU6MzgiLCAiYXBsIjogIjkxLjEzIiwgImVvZCI6ICIyMzkiLCAiZXJybyI6IG51bGx9LCB7ImRhdGEiOiAiMjQvMDgvMjAyNiAwMTo1NToxMiIsICJhcGwiOiAiOTEuMTMiLCAiZW9kIjogIjIzOSIsICJlcnJvIjogbnVsbH0sIHsiZGF0YSI6ICIyNC8wOC8yMDI2IDAxOjI0OjQ3IiwgImFwbCI6ICI5MS4xMyIsICJlb2QiOiAiMjM5IiwgImVycm8iOiBudWxsfSwgeyJkYXRhIjogIjI0LzA4LzIwMjYgMDA6NTQ6MjAiLCAiYXBsIjogIjkxLjEzIiwgImVvZCI6ICIyMzkiLCAiZXJybyI6IG51bGx9LCB7ImRhdGEiOiAiMjQvMDgvMjAyNiAwMDoyNDozMiIsICJhcGwiOiAiOTEuMTMiLCAiZW9kIjogIjIzOSIsICJlcnJvIjogbnVsbH0sIHsiZGF0YSI6ICIyMy8wOC8yMDI2IDIzOjU0OjA0IiwgImFwbCI6ICI5MS4xMyIsICJlb2QiOiAiMjM5IiwgImVycm8iOiBudWxsfSwgeyJkYXRhIjogIjIzLzA4LzIwMjYgMjM6MjQ6MTYiLCAiYXBsIjogIjkxLjEzIiwgImVvZCI6ICIyMzkiLCAiZXJybyI6IG51bGx9LCB7ImRhdGEiOiAiMjMvMDgvMjAyNiAyMjo1Mzo1MCIsICJhcGwiOiAiOTEuMTMiLCAiZW9kIjogIjIzOSIsICJlcnJvIjogbnVsbH0sIHsiZGF0YSI6ICIyMy8wOC8yMDI2IDIyOjIzOjIyIiwgImFwbCI6ICI5MS4xMyIsICJlb2QiOiAiMjM5IiwgImVycm8iOiBudWxsfSwgeyJkYXRhIjogIjIzLzA4LzIwMjYgMTY6NDk6NTgiLCAiYXBsIjogIjkxLjEzIiwgImVvZCI6ICIyMzkiLCAiZXJybyI6IG51bGx9LCB7ImRhdGEiOiAiMjMvMDgvMjAyNiAxMDo1MTo1MiIsICJhcGwiOiAiOTEuMTMiLCAiZW9kIjogIjIzOSIsICJlcnJvIjogIjEwMjIifSwgeyJkYXRhIjogIjIzLzA4LzIwMjYgMDQ6Mzg6MjIiLCAiYXBsIjogIjkxLjEzIiwgImVvZCI6ICIyMzkiLCAiZXJybyI6IG51bGx9LCB7ImRhdGEiOiAiMjMvMDgvMjAyNiAwNDoyOToxNSIsICJhcGwiOiAiOTEuMTMiLCAiZW9kIjogIjIzOSIsICJlcnJvIjogIjEwMjIifSwgeyJkYXRhIjogIjIzLzA4LzIwMjYgMDM6NTY6NDEiLCAiYXBsIjogIjkxLjEzIiwgImVvZCI6ICIyMzkiLCAiZXJybyI6IG51bGx9LCB7ImRhdGEiOiAiMjMvMDgvMjAyNiAwMzoyNToyNSIsICJhcGwiOiAiOTEuMTMiLCAiZW9kIjogIjIzOSIsICJlcnJvIjogbnVsbH0sIHsiZGF0YSI6ICIyMy8wOC8yMDI2IDAyOjU2OjI0IiwgImFwbCI6ICI5MS4xMyIsICJlb2QiOiAiMjM5IiwgImVycm8iOiBudWxsfSwgeyJkYXRhIjogIjIzLzA4LzIwMjYgMDI6MjU6NTgiLCAiYXBsIjogIjkxLjEzIiwgImVvZCI6ICIyMzkiLCAiZXJybyI6IG51bGx9LCB7ImRhdGEiOiAiMjMvMDgvMjAyNiAwMTo1NDozMiIsICJhcGwiOiAiOTEuMTMiLCAiZW9kIjogIjIzOSIsICJlcnJvIjogbnVsbH0sIHsiZGF0YSI6ICIyMy8wOC8yMDI2IDAxOjI1OjIyIiwgImFwbCI6ICI5MS4xMyIsICJlb2QiOiAiMjM5IiwgImVycm8iOiBudWxsfSwgeyJkYXRhIjogIjIzLzA4LzIwMjYgMDA6NTQ6MDciLCAiYXBsIjogIjkxLjEzIiwgImVvZCI6ICIyMzkiLCAiZXJybyI6IG51bGx9LCB7ImRhdGEiOiAiMjMvMDgvMjAyNiAwMDoyMzo0MSIsICJhcGwiOiAiOTEuMTMiLCAiZW9kIjogIjIzOSIsICJlcnJvIjogbnVsbH0sIHsiZGF0YSI6ICIyMi8wOC8yMDI2IDIzOjUzOjUyIiwgImFwbCI6ICI5MS4xMyIsICJlb2QiOiAiMjM5IiwgImVycm8iOiBudWxsfSwgeyJkYXRhIjogIjIyLzA4LzIwMjYgMjM6MjQ6MDMiLCAiYXBsIjogIjkxLjEzIiwgImVvZCI6ICIyMzkiLCAiZXJybyI6IG51bGx9LCB7ImRhdGEiOiAiMjIvMDgvMjAyNiAyMjo1MzozNyIsICJhcGwiOiAiOTEuMTMiLCAiZW9kIjogIjIzOSIsICJlcnJvIjogbnVsbH0sIHsiZGF0YSI6ICIyMi8wOC8yMDI2IDIyOjIzOjQ3IiwgImFwbCI6ICI5MS4xMyIsICJlb2QiOiAiMjM5IiwgImVycm8iOiBudWxsfSwgeyJkYXRhIjogIjIyLzA4LzIwMjYgMTE6MDk6MzgiLCAiYXBsIjogIjkxLjEzIiwgImVvZCI6ICIyMzkiLCAiZXJybyI6ICIxMDIyIn0sIHsiZGF0YSI6ICIyMi8wOC8yMDI2IDA0OjU5OjIwIiwgImFwbCI6ICI5MS4xMyIsICJlb2QiOiAiMjM5IiwgImVycm8iOiBudWxsfV19"));
+    const TGS_30 = JSON.parse(atob("eyIxMDQwMDEiOiBbeyJkYXRhIjogIjI1LzA4LzIwMjYgMTY6NTE6MDAiLCAic2VxIjogIjE5MDEifSwgeyJkYXRhIjogIjI1LzA4LzIwMjYgMTA6NDc6MDAiLCAic2VxIjogIjE5MDAifSwgeyJkYXRhIjogIjI0LzA4LzIwMjYgMjI6MjI6MDAiLCAic2VxIjogIjE4OTkifSwgeyJkYXRhIjogIjI0LzA4LzIwMjYgMTY6NDk6MDAiLCAic2VxIjogIjE4OTgifSwgeyJkYXRhIjogIjI0LzA4LzIwMjYgMTA6NTA6MDAiLCAic2VxIjogIjE4OTcifSwgeyJkYXRhIjogIjIzLzA4LzIwMjYgMjI6MjM6MDAiLCAic2VxIjogIjE4OTYifSwgeyJkYXRhIjogIjIzLzA4LzIwMjYgMTY6NTA6MDAiLCAic2VxIjogIjE4OTUifSwgeyJkYXRhIjogIjIzLzA4LzIwMjYgMTA6NDk6MDAiLCAic2VxIjogIjE4OTQifSwgeyJkYXRhIjogIjIyLzA4LzIwMjYgMjI6MjQ6MDAiLCAic2VxIjogIjE4OTEifSwgeyJkYXRhIjogIjIyLzA4LzIwMjYgMjI6MjQ6MDAiLCAic2VxIjogIjE4OTMifSwgeyJkYXRhIjogIjIyLzA4LzIwMjYgMjI6MjQ6MDAiLCAic2VxIjogIjE4OTIifSwgeyJkYXRhIjogIjIxLzA4LzIwMjYgMjI6MjU6MDAiLCAic2VxIjogIjE4OTAifSwgeyJkYXRhIjogIjIxLzA4LzIwMjYgMTY6NTI6MDAiLCAic2VxIjogIjE4ODgifSwgeyJkYXRhIjogIjIxLzA4LzIwMjYgMTY6NTI6MDAiLCAic2VxIjogIjE4ODkifSwgeyJkYXRhIjogIjIwLzA4LzIwMjYgMjI6MjY6MDAiLCAic2VxIjogIjE4ODcifSwgeyJkYXRhIjogIjIwLzA4LzIwMjYgMTY6NTU6MDAiLCAic2VxIjogIjE4ODYifSwgeyJkYXRhIjogIjIwLzA4LzIwMjYgMTY6NTU6MDAiLCAic2VxIjogIjE4ODUifSwgeyJkYXRhIjogIjIwLzA4LzIwMjYgMTA6NTI6MDAiLCAic2VxIjogIjE4ODQifSwgeyJkYXRhIjogIjE5LzA4LzIwMjYgMjI6MjU6MDAiLCAic2VxIjogIjE4ODMifSwgeyJkYXRhIjogIjE5LzA4LzIwMjYgMTY6NTA6MDAiLCAic2VxIjogIjE4ODIifSwgeyJkYXRhIjogIjE5LzA4LzIwMjYgMTA6NDk6MDAiLCAic2VxIjogIjE4ODEifSwgeyJkYXRhIjogIjE4LzA4LzIwMjYgMjI6MjY6MDAiLCAic2VxIjogIjE4ODAifSwgeyJkYXRhIjogIjE4LzA4LzIwMjYgMTY6NDk6MDAiLCAic2VxIjogIjE4NzkifSwgeyJkYXRhIjogIjE4LzA4LzIwMjYgMTA6NTU6MDAiLCAic2VxIjogIjE4NzgifSwgeyJkYXRhIjogIjE3LzA4LzIwMjYgMjI6MjY6MDAiLCAic2VxIjogIjE4NzcifSwgeyJkYXRhIjogIjE3LzA4LzIwMjYgMjI6MjY6MDAiLCAic2VxIjogIjE4NzYifSwgeyJkYXRhIjogIjE3LzA4LzIwMjYgMTA6NDk6MDAiLCAic2VxIjogIjE4NzUifSwgeyJkYXRhIjogIjE3LzA4LzIwMjYgMDU6MDM6MDAiLCAic2VxIjogIjE4NzQifSwgeyJkYXRhIjogIjE2LzA4LzIwMjYgMTY6NTE6MDAiLCAic2VxIjogIjE4NzMifSwgeyJkYXRhIjogIjE2LzA4LzIwMjYgMTA6NDU6MDAiLCAic2VxIjogIjE4NzIifV19"));
+    
     const datePicker = document.getElementById('datePicker');
     const searchInput = document.getElementById('globalSearch');
     const metaFilter = document.getElementById('metaFilter');
-    let chartTrend = null;
-    let chartStatus = null;
+    let chartTrend = null; let chartStatus = null;
     
-    // Auto refresh
     let timeLeft = 300;
-    const refreshBar = document.getElementById('refresh-bar');
     setInterval(() => {
         timeLeft--;
         if(timeLeft <= 0) location.reload();
-        refreshBar.style.width = ((300 - timeLeft) / 300 * 100) + '%';
+        document.getElementById('refresh-bar').style.width = ((300 - timeLeft) / 300 * 100) + '%';
     }, 1000);
 
     function init() {
@@ -263,79 +230,60 @@
 
     function toggleTheme() {
         const body = document.body;
-        const current = body.getAttribute('data-theme');
-        body.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+        body.setAttribute('data-theme', body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+        renderCharts(datePicker.value, lastCounts);
     }
 
     function switchTab(id) {
         document.querySelectorAll('.view-section').forEach(e => e.classList.remove('active'));
-        document.querySelectorAll('.tab-item').forEach(e => e.classList.remove('active'));
+        document.querySelectorAll('.tabs-nav .tab-item').forEach(e => e.classList.remove('active'));
         document.getElementById(id).classList.add('active');
-        
         const index = id === 'tab-online' ? 0 : id === 'tab-critical' ? 1 : 2;
-        document.querySelectorAll('.tab-item')[index].classList.add('active');
+        document.querySelectorAll('.tabs-nav .tab-item')[index].classList.add('active');
     }
 
-    function getLatestEodVersion() {
-        let maxVer = 0.0;
-        Object.values(METADATA).forEach(m => { 
-            let v = parseFloat(m.eod); 
-            if(!isNaN(v) && v > maxVer) maxVer = v; 
-        });
-        return maxVer;
+    function switchModalTab(id, el) {
+        document.querySelectorAll('.m-content').forEach(e => e.classList.remove('active'));
+        document.querySelectorAll('.m-tab').forEach(e => e.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        el.classList.add('active');
     }
 
-    function getDatesInRange(startDateStr, daysBack) {
-        const dates = [];
-        const parts = startDateStr.split('-');
-        const baseDate = new Date(parseInt(parts[0]), parseInt(parts[1])-1, parseInt(parts[2]));
-        for (let i = 0; i < daysBack; i++) {
-            const d = new Date(baseDate);
-            d.setDate(baseDate.getDate() - i);
-            const y = d.getFullYear();
-            const m = String(d.getMonth() + 1).padStart(2, '0');
-            const day = String(d.getDate()).padStart(2, '0');
-            dates.push(`${y}-${m}-${day}`);
-        }
-        return dates;
-    }
+    let lastCounts = { online: 0, offline: 0, critical: 0, total: 0 };
 
     function renderDashboard() {
         const selectedDateStr = datePicker.value;
-        const lists = { 
-            online: document.getElementById('list-online'), 
-            offline: document.getElementById('list-offline'), 
-            critical: document.getElementById('list-critical') 
-        };
+        const lists = { online: document.getElementById('list-online'), offline: document.getElementById('list-offline'), critical: document.getElementById('list-critical') };
         Object.values(lists).forEach(l => l.innerHTML = '');
 
         let counts = { online: 0, offline: 0, critical: 0, total: 0 };
-        const maxEod = getLatestEodVersion();
         const selParts = selectedDateStr.split('-');
         const dateEndObj = new Date(parseInt(selParts[0]), parseInt(selParts[1])-1, parseInt(selParts[2]), 23, 59, 59);
         const dateStartObj = new Date(parseInt(selParts[0]), parseInt(selParts[1])-1, parseInt(selParts[2]), 0, 0, 0);
+
+        // Ordena veículos por número
+        FROTA.sort((a, b) => String(a).localeCompare(String(b), undefined, { numeric: true }));
 
         FROTA.forEach(veiculo => {
             counts.total++;
             const logs = HISTORY[veiculo] || [];
             let lastLog = null;
-
             for (let log of logs) { 
                 const logDate = new Date(log.d.replace(' ', 'T'));
                 if (logDate <= dateEndObj) { lastLog = log; break; } 
             }
 
             const meta = METADATA[veiculo] || {};
+            const ipStr = IPS[veiculo] || 'N/A';
             const eodVal = parseFloat(meta.eod) || 0;
-            const isOutdated = eodVal < maxEod;
+            const isOutdated = eodVal < 239.0;
             
-            const searchData = `${veiculo} ${meta.versao} ${meta.eod} ${lastLog ? lastLog.e : ''}`.toLowerCase();
+            const searchData = `${veiculo} ${meta.versao} ${meta.eod} ${ipStr} ${lastLog ? lastLog.e : ''}`.toLowerCase();
             const rowAttr = `data-search="${searchData}" data-outdated="${isOutdated}" data-error="${lastLog && lastLog.e ? 'true' : 'false'}"`;
 
             if (!lastLog) {
                 counts.offline++;
-                const row = `<tr ${rowAttr}><td><strong>${veiculo}</strong></td><td><span class="badge badge-offline">SEM DADOS</span></td><td>Nunca</td><td>-</td></tr>`;
-                lists.offline.insertAdjacentHTML('beforeend', row);
+                lists.offline.insertAdjacentHTML('beforeend', `<tr ${rowAttr}><td><strong>${veiculo}</strong></td><td>${ipStr}</td><td><span class="badge badge-offline">SEM DADOS</span></td><td>Nunca</td><td>-</td></tr>`);
                 return;
             }
 
@@ -345,163 +293,143 @@
             if (isToday) {
                 if (lastLog.e) {
                     counts.critical++;
-                    const row = `<tr ${rowAttr} onclick="showDetails('${veiculo}')" style="cursor:pointer">
-                        <td><strong>${veiculo}</strong></td>
-                        <td><span class="badge badge-error">ERRO</span></td>
-                        <td class="text-danger">${escapeHtml(lastLog.e)}</td>
-                        <td>${lastLog.d.split(' ')[1]}</td>
-                        <td><small>${meta.versao || '-'}</small></td>
-                    </tr>`;
-                    lists.critical.insertAdjacentHTML('beforeend', row);
+                    lists.critical.insertAdjacentHTML('beforeend', `<tr ${rowAttr} onclick="showDetails('${veiculo}')" style="cursor:pointer">
+                        <td><strong>${veiculo}</strong></td><td>${ipStr}</td><td><span class="badge badge-error">ERRO</span></td><td class="text-danger">${escapeHtml(lastLog.e)}</td><td>${lastLog.d.split(' ')[1]}</td><td><small>${meta.versao || '-'}</small></td>
+                    </tr>`);
                 } else {
                     counts.online++;
-                    const cardClass = isOutdated ? 'v-card outdated' : 'v-card';
-                    const div = `
-                    <div class="${cardClass}" ${rowAttr} onclick="showDetails('${veiculo}')">
-                        <div class="v-header">
-                            <span class="v-id">${veiculo}</span>
-                            <span style="color:var(--success)">●</span>
-                        </div>
+                    lists.online.insertAdjacentHTML('beforeend', `
+                    <div class="v-card ${isOutdated ? 'outdated' : ''}" ${rowAttr} onclick="showDetails('${veiculo}')">
+                        <div class="v-header"><span class="v-id">${veiculo}</span><span style="color:var(--success)">●</span></div>
                         <div class="v-time">🕒 ${lastLog.d.split(' ')[1]}</div>
                         <div class="v-meta">v${meta.versao || '?'} | EOD ${meta.eod || '?'}</div>
-                    </div>`;
-                    lists.online.insertAdjacentHTML('beforeend', div);
+                        <div class="v-ip">IP: ${ipStr}</div>
+                    </div>`);
                 }
             } else {
                 counts.offline++;
-                const oneDay = 86400000;
-                const d1 = new Date(dateStartObj.getFullYear(), dateStartObj.getMonth(), dateStartObj.getDate());
-                const d2 = new Date(lastDate.getFullYear(), lastDate.getMonth(), lastDate.getDate());
-                const diffDays = Math.round(Math.abs((d1 - d2) / oneDay));
-                
-                const row = `<tr ${rowAttr} onclick="showDetails('${veiculo}')" style="cursor:pointer">
-                    <td><strong>${veiculo}</strong></td>
-                    <td><span class="badge badge-offline">OFFLINE</span></td>
-                    <td>${formatDateBr(lastLog.d)}</td>
-                    <td>${diffDays} dia(s)</td>
-                </tr>`;
-                lists.offline.insertAdjacentHTML('beforeend', row);
+                const diffDays = Math.round(Math.abs((dateStartObj - lastDate) / 86400000));
+                lists.offline.insertAdjacentHTML('beforeend', `<tr ${rowAttr} onclick="showDetails('${veiculo}')" style="cursor:pointer">
+                    <td><strong>${veiculo}</strong></td><td>${ipStr}</td><td><span class="badge badge-offline">OFFLINE</span></td><td>${formatDateBr(lastLog.d)}</td><td>${diffDays} dia(s)</td>
+                </tr>`);
             }
         });
 
-        updateKPIs(counts);
-        applyFilters(); 
-        renderCharts(selectedDateStr, counts);
-    }
-
-    function updateKPIs(counts) {
+        lastCounts = counts;
         document.getElementById('kpi-online').innerText = counts.online;
         document.getElementById('kpi-offline').innerText = counts.offline;
         document.getElementById('kpi-critical').innerText = counts.critical;
-        
         const active = counts.online + counts.critical;
-        const rate = active > 0 ? ((counts.online / active) * 100).toFixed(1) : 0;
-        document.getElementById('kpi-rate').innerText = rate + '%';
+        document.getElementById('kpi-rate').innerText = active > 0 ? ((counts.online / active) * 100).toFixed(1) + '%' : '0%';
 
-        document.getElementById('empty-online').classList.toggle('hidden', counts.online > 0);
-        document.getElementById('empty-offline').classList.toggle('hidden', counts.offline > 0);
-        document.getElementById('empty-critical').classList.toggle('hidden', counts.critical > 0);
+        applyFilters(); 
+        renderCharts(selectedDateStr, counts);
     }
 
     function applyFilters() {
         const term = searchInput.value.toLowerCase();
         const filterType = metaFilter.value;
-
         const filterItem = (el) => {
-            const searchData = el.getAttribute('data-search');
-            const outdated = el.getAttribute('data-outdated') === 'true';
-            const hasError = el.getAttribute('data-error') === 'true';
-            
             let show = true;
-            if (term && searchData.indexOf(term) === -1) show = false;
-            if (filterType === 'old_eod' && !outdated) show = false;
-            if (filterType === 'has_error' && !hasError) show = false;
-            
+            if (term && el.getAttribute('data-search').indexOf(term) === -1) show = false;
+            if (filterType === 'old_eod' && el.getAttribute('data-outdated') !== 'true') show = false;
+            if (filterType === 'has_error' && el.getAttribute('data-error') !== 'true') show = false;
             el.style.display = show ? '' : 'none';
         };
-
-        document.querySelectorAll('.v-card').forEach(filterItem);
-        document.querySelectorAll('tbody tr').forEach(filterItem);
+        document.querySelectorAll('.v-card, tbody tr').forEach(filterItem);
     }
 
     function renderCharts(dateStr, counts) {
-        const ctxStatus = document.getElementById('statusChart').getContext('2d');
+        const textColor = document.body.getAttribute('data-theme') === 'dark' ? '#cbd5e1' : '#334155';
         if(chartStatus) chartStatus.destroy();
-        
-        const isDark = document.body.getAttribute('data-theme') === 'dark';
-        const textColor = isDark ? '#cbd5e1' : '#334155';
-
-        chartStatus = new Chart(ctxStatus, {
-            type: 'doughnut',
-            data: { 
-                labels: ['Online', 'Erro', 'Offline'], 
-                datasets: [{ 
-                    data: [counts.online, counts.critical, counts.offline], 
-                    backgroundColor: ['#10b981', '#ef4444', '#f59e0b'],
-                    borderWidth: 0
-                }] 
-            },
-            options: { 
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { position: 'bottom', labels: { color: textColor } } } 
-            }
+        chartStatus = new Chart(document.getElementById('statusChart'), {
+            type: 'doughnut', data: { labels: ['Online', 'Erro', 'Offline'], datasets: [{ data: [counts.online, counts.critical, counts.offline], backgroundColor: ['#10b981', '#ef4444', '#f59e0b'], borderWidth: 0 }] },
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { color: textColor } } } }
         });
 
-        const dateList = getDatesInRange(dateStr, 30);
-        const labels = [];
-        const dataOnline = [];
-        const dataErrors = [];
-
-        for(let i = dateList.length - 1; i >= 0; i--) {
-            const isoDate = dateList[i];
-            const parts = isoDate.split('-');
-            labels.push(`${parts[2]}/${parts[1]}`);
-
-            let dayOnline = 0;
-            let dayError = 0;
-
-            FROTA.forEach(v => {
-                const logs = HISTORY[v] || [];
-                const log = logs.find(l => l.d.startsWith(isoDate));
-                if(log) {
-                    if(log.e) dayError++; else dayOnline++;
-                }
-            });
-            dataOnline.push(dayOnline);
-            dataErrors.push(dayError);
+        const labels = []; const dOn = []; const dErr = [];
+        let baseDate = new Date();
+        for(let i = 29; i >= 0; i--) {
+            let d = new Date(baseDate); d.setDate(d.getDate() - i);
+            let iso = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+            labels.push(`${iso.split('-')[2]}/${iso.split('-')[1]}`);
+            let on = 0, err = 0;
+            FROTA.forEach(v => { const log = (HISTORY[v] || []).find(l => l.d.startsWith(iso)); if(log) { if(log.e) err++; else on++; } });
+            dOn.push(on); dErr.push(err);
         }
-
-        const ctxTrend = document.getElementById('trendChart').getContext('2d');
         if(chartTrend) chartTrend.destroy();
-        chartTrend = new Chart(ctxTrend, {
-            type: 'line',
-            data: { 
-                labels: labels, 
-                datasets: [ 
-                    { label: 'Sucesso', data: dataOnline, borderColor: '#10b981', backgroundColor: 'rgba(16, 185, 129, 0.1)', tension: 0.3, fill: true, pointRadius: 2 }, 
-                    { label: 'Erros', data: dataErrors, borderColor: '#ef4444', backgroundColor: 'rgba(239, 68, 68, 0.1)', tension: 0.3, fill: true, pointRadius: 2 } 
-                ] 
-            },
-            options: { 
-                responsive: true,
-                maintainAspectRatio: false,
-                interaction: { mode: 'index', intersect: false }, 
-                plugins: { legend: { labels: { color: textColor } } }, 
-                scales: { 
-                    y: { beginAtZero: true, grid: { color: isDark ? '#334155' : '#e2e8f0' }, ticks: { color: textColor } },
-                    x: { grid: { display: false }, ticks: { color: textColor } }
-                } 
-            }
+        chartTrend = new Chart(document.getElementById('trendChart'), {
+            type: 'line', data: { labels: labels, datasets: [ { label: 'Sucesso', data: dOn, borderColor: '#10b981', backgroundColor: 'rgba(16,185,129,0.1)', fill: true, pointRadius: 1 }, { label: 'Erros', data: dErr, borderColor: '#ef4444', backgroundColor: 'transparent', pointRadius: 1 } ] },
+            options: { responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false }, scales: { y: { grid: { color: 'rgba(100,100,100,0.2)' }, ticks: { color: textColor } }, x: { grid: { display: false }, ticks: { color: textColor } } } }
         });
     }
 
+    function showDetails(veiculo) {
+        const meta = METADATA[veiculo] || {};
+        const ipStr = IPS[veiculo] || 'N/A';
+        const comms = COMMS_50[veiculo] || [];
+        const tgs = TGS_30[veiculo] || [];
+
+        document.getElementById('m-title').innerHTML = `Veículo <strong>${escapeHtml(veiculo)}</strong>`;
+        
+        document.getElementById('m-body-header').innerHTML = `
+            <div style="display:flex; gap:15px; margin-bottom:20px; flex-wrap:wrap;">
+                <div style="flex:1; min-width:120px; background:var(--bg); padding:10px; border-radius:8px;">
+                    <div style="font-size:0.75rem; color:var(--text-light);">Endereço IP</div>
+                    <div style="font-weight:bold; color:var(--primary);">${escapeHtml(ipStr)}</div>
+                </div>
+                <div style="flex:1; min-width:120px; background:var(--bg); padding:10px; border-radius:8px;">
+                    <div style="font-size:0.75rem; color:var(--text-light);">Versão Apl / EOD</div>
+                    <div style="font-weight:bold;">${escapeHtml(meta.versao || 'N/A')} / ${escapeHtml(meta.eod || 'N/A')}</div>
+                </div>
+                <div style="flex:1; min-width:120px; background:var(--bg); padding:10px; border-radius:8px;">
+                    <div style="font-size:0.75rem; color:var(--text-light);">Série</div>
+                    <div style="font-weight:bold;">${escapeHtml(meta.serie || 'N/A')}</div>
+                </div>
+            </div>
+        `;
+
+        let commsHtml = '<div class="table-container"><table style="width:100%; font-size:0.85rem;">';
+        commsHtml += '<tr><th>Data/Hora</th><th>Apl</th><th>EOD</th><th>Status / Erro</th></tr>';
+        if (comms.length > 0) {
+            comms.forEach(c => {
+                let status = c.erro ? `<span class="text-danger">❌ ${escapeHtml(c.erro)}</span>` : '<span style="color:var(--success)">✅ Sucesso</span>';
+                commsHtml += `<tr><td>${c.data}</td><td>${c.apl}</td><td>${c.eod}</td><td>${status}</td></tr>`;
+            });
+        } else {
+            commsHtml += '<tr><td colspan="4" style="text-align:center;">Nenhum registro encontrado.</td></tr>';
+        }
+        commsHtml += '</table></div>';
+        document.getElementById('m-comms').innerHTML = commsHtml;
+
+        let tgsHtml = '<div class="table-container"><table style="width:100%; font-size:0.85rem;">';
+        tgsHtml += '<tr><th>Data do Arquivo (rDate)</th><th>Sequencial (Seq)</th></tr>';
+        if (tgs.length > 0) {
+            tgs.forEach(t => {
+                tgsHtml += `<tr><td>${t.data}</td><td><span class="badge" style="background:var(--primary); color:white;">${t.seq}</span></td></tr>`;
+            });
+        } else {
+            tgsHtml += '<tr><td colspan="2" style="text-align:center;">Nenhum TG nos últimos 30 dias.</td></tr>';
+        }
+        tgsHtml += '</table></div>';
+        document.getElementById('m-tgs').innerHTML = tgsHtml;
+
+        document.querySelectorAll('.m-tab')[0].click();
+        document.getElementById('modalInfo').style.display = "block";
+    }
+
+    function closeModal() { document.getElementById('modalInfo').style.display = "none"; }
+    window.onclick = function(e) { if(e.target == document.getElementById('modalInfo')) closeModal(); }
+    function escapeHtml(text) { return text ? text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;") : ''; }
+    function formatDateBr(isoStr) { return isoStr ? isoStr.split(' ')[0].split('-').reverse().join('/') + ' ' + isoStr.split(' ')[1].substring(0,5) : 'N/A'; }
+
     function exportData() {
         let csvContent = "data:text/csv;charset=utf-8,";
-        csvContent += "Prefixo;Status;Data;Hora;Erro;Versao;EOD\n";
+        csvContent += "Prefixo;IP;Status;Data;Hora;Erro;Versao;EOD\n";
         
         FROTA.forEach(veiculo => {
             const meta = METADATA[veiculo] || {};
+            const ipStr = IPS[veiculo] || 'N/A';
             const logs = HISTORY[veiculo] || [];
             const lastLog = logs[0]; 
             
@@ -522,7 +450,7 @@
                 }
             }
 
-            csvContent += `${veiculo};${status};${data};${hora};${erro};${meta.versao || ''};${meta.eod || ''}\n`;
+            csvContent += `${veiculo};${ipStr};${status};${data};${hora};${erro};${meta.versao || ''};${meta.eod || ''}\n`;
         });
 
         const encodedUri = encodeURI(csvContent);
@@ -541,7 +469,7 @@
         while (switching) {
             switching = false;
             rows = table.rows;
-            for (i = 0; i < (rows.length - 1); i++) {
+            for (i = 1; i < (rows.length - 1); i++) {
                 shouldSwitch = false;
                 x = rows[i].getElementsByTagName("TD")[n]; 
                 y = rows[i + 1].getElementsByTagName("TD")[n];
@@ -559,60 +487,6 @@
             }
         }
     }
-
-    function formatDateBr(isoStr) { 
-        if(!isoStr || isoStr === 'N/A') return 'N/A';
-        const [date, time] = isoStr.split(' '); 
-        return date.split('-').reverse().join('/') + ' ' + time.substring(0,5);
-    }
-
-    function escapeHtml(text) {
-        if (!text) return '';
-        return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-    }
-
-    const modal = document.getElementById('modalInfo');
-    
-    function showDetails(veiculo) {
-        const meta = METADATA[veiculo] || {};
-        const logs = HISTORY[veiculo] || [];
-        const last = logs[0] || {d:'N/A'};
-        
-        let erroHtml = last.e ? `<div style="background:rgba(239, 68, 68, 0.1); color:#ef4444; padding:10px; border-radius:6px; margin-bottom:15px;"><strong>⚠️ Erro Recente:</strong> ${escapeHtml(last.e)}</div>` : '';
-        
-        let histHtml = '<div style="margin-top:20px;"><h4 style="margin-bottom:10px;">Histórico Recente</h4><div style="max-height:200px; overflow-y:auto; border:1px solid var(--border); border-radius:8px;">';
-        histHtml += '<table style="min-width:100%; font-size:0.9rem;">';
-        logs.slice(0, 10).forEach(l => {
-             const color = l.e ? '#ef4444' : '#10b981';
-             const icon = l.e ? '✖' : '✔';
-             histHtml += `<tr><td style="color:${color}; width:20px;">${icon}</td><td>${formatDateBr(l.d)}</td><td style="color:#64748b">${l.e ? escapeHtml(l.e) : 'Sucesso'}</td></tr>`;
-        });
-        histHtml += '</table></div></div>';
-
-        document.getElementById('m-title').innerHTML = `Veículo <strong>${escapeHtml(veiculo)}</strong>`;
-        document.getElementById('m-body').innerHTML = `
-            <div style="display:flex; gap:15px; margin-bottom:15px;">
-                <div style="flex:1; background:var(--bg); padding:10px; border-radius:8px;">
-                    <div style="font-size:0.75rem; color:var(--text-light);">Versão</div>
-                    <div style="font-weight:bold;">${escapeHtml(meta.versao || 'N/A')}</div>
-                </div>
-                <div style="flex:1; background:var(--bg); padding:10px; border-radius:8px;">
-                    <div style="font-size:0.75rem; color:var(--text-light);">EOD</div>
-                    <div style="font-weight:bold;">${escapeHtml(meta.eod || 'N/A')}</div>
-                </div>
-                <div style="flex:1; background:var(--bg); padding:10px; border-radius:8px;">
-                    <div style="font-size:0.75rem; color:var(--text-light);">Série</div>
-                    <div style="font-weight:bold;">${escapeHtml(meta.serie || 'N/A')}</div>
-                </div>
-            </div>
-            ${erroHtml}
-            ${histHtml}
-        `;
-        modal.style.display = "block";
-    }
-
-    function closeModal() { modal.style.display = "none"; }
-    window.onclick = function(e) { if(e.target == modal) closeModal(); }
 
     init();
 </script>
